@@ -13,6 +13,7 @@ using namespace cv;
 
 sio::client h;
 
+//read image dans la repertoire et convertir en vector<char>
 static std::vector<char> ReadAllBytes(char const* filename)
 {
     ifstream ifs(filename, ios::binary|ios::ate);
@@ -41,6 +42,10 @@ void OnReceivePosition(sio::event & event){
             h.socket()->emit("socketDroneId",int_message::create(socketId));
            h.socket()->emit("zoneChoosed", std::make_shared<std::string>(&imageData[0],imageData.size()));
 
+           /*mock du résultat de traitement d'image pour envoyer la position de rectangle au serveur
+            *la taille de zone est fix => longeur 100px, largeur 100px
+            *Donc, pour indiquer la zone, il suffit envoyer la position du point en haut a gauche
+            */
 
            h.socket()->emit("rectanglePosition", string_message::create("50:250"));
        }
@@ -53,7 +58,7 @@ void OnReceiveNewPosition(sio::event& event){
         int left = data->get_map()["left"]->get_int();
         int top = data->get_map()["top"]->get_int();
         cout<<"left position:"<<left<<"    "<<"top position:"<<top<<endl;
-
+        // mock pour générer les coordonnées finales
         cout<<"I am going to the final position " <<"latitude:" <<"43.6175274" <<",    "<<"longitude:"<<"7.067699100000129"<< endl;
     }
 
@@ -84,10 +89,6 @@ int main(int argc, char *argv[])
 
 
     return a.exec();
-}
-
-void traiteImage(cv::Mat image){
-
 }
 
 
