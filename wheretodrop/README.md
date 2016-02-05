@@ -1,5 +1,3 @@
-# wheretodrop-client
-
 This project was generated with the [Angular Full-Stack Generator](https://github.com/DaftMonk/generator-angular-fullstack) version 3.0.0-rc8.
 
 ## Getting Started
@@ -18,5 +16,3 @@ This project was generated with the [Angular Full-Stack Generator](https://githu
 2. Run `bower install` to install front-end dependencies.
 
 3. Run `grunt serve` to start the development server. It should automatically open the client in your browser when ready.
-
-
