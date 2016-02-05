@@ -1,0 +1,16 @@
+
+.picture-container {
+  position: relative;
+  clear: both;
+
+  /* For a picture 500x500 */
+  width: 500px;
+  height: 500px;
+}
+
+.square {
+  border: 3px dotted red;
+  position: absolute;
+  z-index: 999;
+  cursor: move;
+}

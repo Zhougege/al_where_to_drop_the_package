@@ -1,0 +1,59 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<div class="container">
+  <div class="col-md-6">
+  <button id="adresse" class="btn btn-primary pull-left" ng-click="getAdresse()">Adresse</button>
+    </div>
+  <div class="col-md-6">
+    <button id="coordinate" class="btn btn-info pull-right" ng-click="getCoordiante()"> Coordinate</button>
+  </div>
+</div>
+
+
+
+
+<div class="container" style="margin-bottom: 150px;">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">Livraisons:</h1>
+
+      <div class="col-md-12 col-lg-12 col-sm-12 table-container">
+        <table class="table coordinates-table">
+          <thead>
+            <tr>
+              <th>
+                Name
+              </th>
+              <th>
+                Address
+              </th>
+              <th>
+                Latitude
+              </th>
+              <th>
+                Longitude
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="commande in commandes" ng-show="$index < commandeindex">
+              <td ng-bind="commande.name"></td>
+              <td ng-bind="commande.adresse"></td>
+              <td ng-bind="commande.lat" class="coordinate" ng-class="{'error':commande.error}"></td>
+              <td ng-bind="commande.lng" class="coordinate" ng-class="{'error':commande.error}"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<!--<div>
+  <ng-map center="[43.6155724,7.071719199999961]" zoom="15" map-type-id = "SATELLITE">
+    <marker position="[43.6155724,7.071719199999961]"></marker>
+  </ng-map>
+</div>-->
+<footer class="footer">
+  <p>Where To Drop v1.0 |
+  <span>Zhou</span></p>
+</footer>
